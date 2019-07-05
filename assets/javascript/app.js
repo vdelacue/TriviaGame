@@ -109,23 +109,29 @@ var score = 0;
 
 var gameOver = false;
 
+//----- function to add questions to page-------//
+var addQuestionsToPage(obj) = {
+    
+}
+
 
 //-------------funtion to start Old Movie countdown timer 5 seconds------------//
+
 $("#startBTN").click(function () {
+    //remove start screen and add countdown gif image
+    $(".startScreen").remove();
+    $("#startGameScreen").append('<img src="assets/images/5SecCountdown.gif">');
 
-        $(".startScreen").hide();
-        $("#startGameScreen").append('<img src="assets/images/5SecCountdown.gif">');
-    
     setTimeout(fiveSeconds, 1000 * 5);
-
     function fiveSeconds() {
-        $("#startGameScreen").hide();
+        //remove countdown GIF
+        $("#startGameScreen").remove();
     }
+    //call function that appends questions by looping through objects and adding each one to the screen//
+    addQuestionsToPage();
 });
 
-
-
-
+//----function that starts and displays
 
 
 
