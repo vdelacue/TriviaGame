@@ -20,74 +20,83 @@
 //create game Object with questions//
 
 var Blah = {
-    "What we've got here is failure to communicate. ": {
-        "The Shawshank Redemption": 0,
-        "Cool Hand Luke": 1,
-        "Top Gun": 0,
-        "Butch Cassidy and the Sundance Kid": 0
+    "1": {
+        quote: "What we've got here is failure to communicate. ",
+        answerA: "The Shawshank Redemption",
+        answerB: "Cool Hand Luke",
+        answerC: "Top Gun",
+        answerD: "Butch Cassidy and the Sundance Kid"
     },
 
-    "Movies don't create psychos. Movies make psychos more creative! ": {
-        "American Psycho": 0,
-        "Haloween H20": 0,
-        "Psycho": 0,
-        "Scream": 1
+    "2": {
+        quote: "Movies don't create psychos. Movies make psychos more creative! ",
+        answerA: "American Psycho",
+        answerB: "Haloween H20",
+        answerC: "Psycho",
+        answerD: "Scream"
     },
 
-    "That rug really tied the room together. ": {
-        "Fight Club": 0,
-        "Pulp Fiction": 0,
-        "The Big Lebowski": 1,
-        "Fargo": 0
+    "3": {
+        quote: "That rug really tied the room together. ",
+        answerA: "Fight Club",
+        answerB: "Pulp Fiction",
+        answerC: "The Big Lebowski",
+        answerD: "Fargo"
     },
 
-    "I have been touched by your kids...and I'm pretty sure that I've touched them. ": {
-        "School of Rock": 1,
-        "Kindergarten Cop": 0,
-        "Twins": 0,
-        "Bad Teacher": 0
+    "4": {
+        quote: "I have been touched by your kids...and I'm pretty sure that I've touched them. ",
+        answerA: "School of Rock",
+        answerB: "Kindergarten Cop",
+        answerC: "Twins",
+        answerD: "Bad Teacher"
     },
 
-    "You are a sad, strange little man and you have my pity. ": {
-        "The Incredibles": 0,
-        "Up": 0,
-        "Toy Story": 1,
-        "Megamind": 0
+    "5": {
+        quote: "You are a sad, strange little man and you have my pity. ",
+        answerA: "The Incredibles",
+        answerB: "Up",
+        answerC: "Toy Story",
+        answerD: "Megamind"
     },
 
-    "I am serious... and don't call me Shirley. ": {
-        "Monty Python": 0,
-        "Hot Shots Part Deux": 0,
-        "Naked Gun": 0,
-        "Airplane!": 1
+    "6": {
+        quote: "I am serious... and don't call me Shirley. ",
+        answerA: "Monty Python",
+        answerB: "Hot Shots Part Deux",
+        answerC: "Naked Gun",
+        answerD: "Airplane!"
     },
 
-    "I never had any friends later on like the ones I had when I was 12, Jesus, does anyone? ": {
-        "Dazed and Confused": 0,
-        "Stand By Me": 1,
-        "The Sandlot ": 0,
-        "The Mighty Ducks": 0
+    "7": {
+        quote: "I never had any friends later on like the ones I had when I was 12, Jesus, does anyone? ",
+        answerA: "Dazed and Confused",
+        answerB: "Stand By Me",
+        answerC: "The Sandlot ",
+        answerD: "The Mighty Ducks"
     },
 
-    "Mess with the bull young man you'll get the horns. ": {
-        "Pretty in Pink": 0,
-        "Sixteen Candles": 0,
-        "Breakfast Club": 0,
-        "Say Anything": 1
+    "8": {quote: "Mess with the bull young man you'll get the horns. ",
+        answerA: "Pretty in Pink",
+        answerB: "Sixteen Candles",
+        answerC: "Breakfast Club",
+        answerD: "Say Anything"
     },
 
-    "We don't need no stinking badges! ": {
-        "Casablanca": 0,
-        "Dirty Harry": 0,
-        "Treasure of the Sierra Madre": 1,
-        "The Good the Bad and the Ugly": 0
+    "9": {
+        quote: "We don't need no stinking badges! ",
+        answerA: "Casablanca",
+        answerB: "Dirty Harry",
+        answerC: "Treasure of the Sierra Madre",
+        answerD: "The Good the Bad and the Ugly"
     },
 
-    "I love the smell of napalm in the morning. ": {
-        "Platoon": 0,
-        "Saving Private Ryan": 0,
-        "Full-Metal Jacket": 0,
-        "Apocalypse Now": 1
+    "10": {
+        quote: "I love the smell of napalm in the morning. ",
+        answerA: "Platoon",
+        answerB: "Saving Private Ryan",
+        answerC: "Full-Metal Jacket",
+        answerD: "Apocalypse Now"
     }
 
 }
@@ -111,7 +120,7 @@ var gameOver = false;
 
 //----- function to add questions to page-------//
 var addQuestionsToPage(obj) = {
-    
+
 }
 
 
@@ -123,6 +132,7 @@ $("#startBTN").click(function () {
     $("#startGameScreen").append('<img src="assets/images/5SecCountdown.gif">');
 
     setTimeout(fiveSeconds, 1000 * 5);
+
     function fiveSeconds() {
         //remove countdown GIF
         $("#startGameScreen").remove();
