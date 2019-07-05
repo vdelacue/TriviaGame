@@ -28,3 +28,7 @@ body {
 #startGameScreen p {
     margin-top: 5%;
 }
+
+img {
+    size: 100%;
+}
