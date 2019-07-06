@@ -32,3 +32,13 @@ body {
 img {
     size: 100%;
 }
+
+#questionaire {
+    background: white;
+    border: solid;
+    border-color: grey;
+    opacity: 0.5;
+    margin-top: 20%;
+    padding: 10%;
+    text-align: center;
+}

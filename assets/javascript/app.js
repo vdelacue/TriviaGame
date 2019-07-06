@@ -18,7 +18,7 @@
 //we can create an object of the questions with each question as its own object with choices that are assigned numerical values
 
 //create game Object with questions & an answer key //
-
+$(document).ready(function(){
 var movieQuotes = {
     "1": {
         quote: "What we've got here is failure to communicate. ",
@@ -136,29 +136,55 @@ var gameOver = false;
 //----- function to add questions to page-------//
 
 var addQuestionsToPage = function (movieQuotes) {
-    var label = $("<label>");
-    console.log(label);
-    var brk = $("<br />");
+    var labelA = $('<label id="labelA">');
+    var labelB = $('<label id="labelB">');
+    var labelC = $('<label id="labelC">');
+    var labelD = $('<label id="labelD">');
+    
+    var brk = $("</br>");
     console.log(brk);
 
-    for (var i = 1; i <= 10; i++) {
+    for (var i = 1; i <= 1; i++) {
 
         var iSTR = i.toString();
+        console.log("iSTR: " + iSTR);
         //create the h2 tag for the question and give the h2 tag text of the quote
         var h2Quote = $("<h2>").text("Question " + i + ": " + movieQuotes[iSTR].quote);
+        console.log("h2Quote: " + h2Quote);
         //create 4 c posibilities tags and their text
+        $("form").append(h2Quote);
+
+        var choiceA = $('<input type="radio" name="q' + i + '"' + 'value="cA">').text(movieQuotes[iSTR].cA);
+        console.log("choiceA " + choiceA);
+        labelA.append(choiceA);
         
-        var choiceA = $('<label>' + '<input type="radio" name="q' + i + '"' + 'value="cA">').text(movieQuotes[iSTR].cA + '</label><br/>');
-        var choiceB = $('<label>' + '<input type="radio" name="q' + i + '"' + 'value="cB">').text(movieQuotes[iSTR].cB + '</label><br/>');
-        var choiceC = $('<label>' + '<input type="radio" name="q' + i + '"' + 'value="cC">').text(movieQuotes[iSTR].cC + '</label><br/>');
-        var choiceD = $('<label>' + '<input type="radio" name="q' + i + '"' + 'value="cD">').text(movieQuotes[iSTR].cD + '</label><br/>');
+        $("form").append("<br>");
+        $("br").append(labelA);
+        
+        var choiceB = $('<input type="radio" name="q' + i + '"' + 'value="cB">').text(movieQuotes[iSTR].cB);
+        console.log("choiceB " + choiceB);
+        labelB.append(choiceB);
+        $("form").append(labelB);
+        $("form").append("<br>");
+        
+        var choiceC = $('<input type="radio" name="q' + i + '"' + 'value="cC">').text(movieQuotes[iSTR].cC);
+        console.log("choiceC " + choiceC);
+        labelC.append(choiceC);
+        $("form").append(labelC);
+        $("form").append("<br>");
+       
+        var choiceD = $('<input type="radio" name="q' + i + '"' + 'value="cD">').text(movieQuotes[iSTR].cD);
+        console.log("choiceD " + choiceD);
+        labelD.append(choiceD);
+        $("form").append(labelD);
+        $("form").append("<br>");
         
         // qRow.append(h2Quote, choiceA, brk, choiceB, brk, choiceC, brk, choiceD, brk);
         // Append the table row to the table body
         
-        h2Quote.append(choiceA, choiceB, choiceC, choiceD);
-     
-        $("form").append(h2Quote);
+        // $("form").append(labelA, brk, labelB, brk, labelC, labelD, brk);
+        console.log(h2Quote.innerHTML);
+        
     }
 
 }
@@ -183,6 +209,9 @@ $("#startBTN").click(function () {
     addQuestionsToPage(movieQuotes);
 });
 
+
+
+})
 //----function that starts and displays
 
 
