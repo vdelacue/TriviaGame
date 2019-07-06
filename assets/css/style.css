@@ -26,7 +26,11 @@ body {
 }
 
 #startGameScreen p {
-    margin-top: 5%;
+    margin: 0.5%;
+}
+
+#startBTN {
+    margin-bottom: 5%;
 }
 
 img {
