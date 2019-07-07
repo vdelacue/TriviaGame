@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     var movieQuotes = [{
             quote: "What we've got here is failure to communicate. ",
-            choices: {
+            choice: {
                 a: "The Shawshank Redemption",
                 b: "Cool Hand Luke",
                 c: "Top Gun",
@@ -13,7 +13,7 @@ $(document).ready(function () {
 
         {
             quote: "Movies don't create psychos. Movies make psychos more creative! ",
-            choices: {
+            choice: {
                 a: "I know what you did last summer",
                 b: "Haloween H20",
                 c: "Psycho",
@@ -25,7 +25,7 @@ $(document).ready(function () {
 
         {
             quote: "That rug really tied the room together. ",
-            choices: {
+            choice: {
                 a: "American Psycho",
                 b: "Pulp Fiction",
                 c: "The Big Lebowski",
@@ -36,7 +36,7 @@ $(document).ready(function () {
 
         {
             quote: "I have been touched by your kids...and I'm pretty sure that I've touched them. ",
-            choices: {
+            choice: {
                 a: "School of Rock",
                 b: "Kindergarten Cop",
                 c: "Twins",
@@ -47,7 +47,7 @@ $(document).ready(function () {
 
         {
             quote: "You are a sad, strange little man and you have my pity. ",
-            choices: {
+            choice: {
                 a: "The Incredibles",
                 b: "Up",
                 c: "Toy Story",
@@ -58,7 +58,7 @@ $(document).ready(function () {
 
         {
             quote: "I am serious... and don't call me Shirley. ",
-            choices: {
+            choice: {
                 a: "Monty Python",
                 b: "Hot Shots Part Deux",
                 c: "Naked Gun",
@@ -69,7 +69,7 @@ $(document).ready(function () {
 
         {
             quote: "I never had any friends later on, like the ones I had when I was 12, Jesus, does anyone? ",
-            choices: {
+            choice: {
                 a: "Dazed and Confused",
                 b: "Stand By Me",
                 c: "The Sandlot ",
@@ -80,7 +80,7 @@ $(document).ready(function () {
 
         {
             quote: "Mess with the bull young man you'll get the horns. ",
-            choices: {
+            choice: {
                 a: "Pretty in Pink",
                 b: "Sixteen Candles",
                 c: "Breakfast Club",
@@ -91,7 +91,7 @@ $(document).ready(function () {
 
         {
             quote: "We don't need no stinking badges! ",
-            choices: {
+            choice: {
                 a: "Casablanca",
                 b: "Dirty Harry",
                 c: "Treasure of the Sierra Madre",
@@ -102,7 +102,7 @@ $(document).ready(function () {
 
         {
             quote: "I love the smell of napalm in the morning. ",
-            choices: {
+            choice: {
                 a: "Platoon",
                 b: "Saving Private Ryan",
                 c: "Full-Metal Jacket",
@@ -130,18 +130,43 @@ $(document).ready(function () {
     });
 
     //---------------create target elements from HTML page for function
-    var questionaireContainer = $("#questionaire");
+    var questionaireContainer = $("#questions");
     var resultsContainer = $("#results");
     var submitButton = $("#submit");
 
     //------------------function that builds quiz
     var makeQuestionaire = function() {
         $("#questionaire").show();
+        var output = [];
+        //for each loop through each object in array and store the output in output
+        movieQuotes.forEach(function(currentQuote, quoteNumber) {
+            var choices =[];
+            for(letter in currentQuote.choices){
+                //add an HTML radio button
+                choices.push(
+                  `<label>
+                    <input type="radio" name="question${quoteNumber}" value="${letter}">
+                    ${letter} :
+                    ${currentQuote.choices[letter]}
+                  </label>`
+                );
+              }
+        
+              // add this question and its answers to the output
+              output.push(
+                `<div class="quote"> ${currentQuote.quote} </div>
+                <div class="choices"> ${choicess.join('')} </div>`
+              );
+            }
+          );
+
+        })
+
     };
 
 
     function showResults() {
-        
+
     }
     // display quiz right away
     makeQuestionaire();
