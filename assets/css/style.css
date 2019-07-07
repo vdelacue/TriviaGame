@@ -7,6 +7,15 @@
 .customfont {
     font-family: "My Custom Font", Verdana, Tahoma;
 }
+.quotes {
+    background: white;
+    border: solid;
+    border-color: grey;
+    opacity: 0.5;
+    margin-top: 20%;
+    padding: 10%;
+    text-align: center;
+}
 
 body {
     background-image: url("../images/theaterBackgound.jpeg");
@@ -37,12 +46,3 @@ img {
     size: 100%;
 }
 
-#questionaire {
-    background: white;
-    border: solid;
-    border-color: grey;
-    opacity: 0.5;
-    margin-top: 20%;
-    padding: 10%;
-    text-align: center;
-}

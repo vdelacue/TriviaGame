@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+    $("#questionaire").hide();
+    $("#questions").hide();
+    $("#submit").hide();
+    $("#results").hide();
+
     var movieQuotes = [{
             quote: "What we've got here is failure to communicate. ",
             choice: {
@@ -114,6 +119,46 @@ $(document).ready(function () {
 
     //--------------------------start screen------------------//
 
+
+
+    //---------------create target elements from HTML page for function
+    var questionsContainer = $("#questions");
+    var resultsContainer = $("#results");
+    var submitButton = $("#submit");
+
+    //------------------function that builds quiz
+    var makeQuestionaire = function () {
+        var output = [];
+        //for each loop - to loop through each object in array and store the output in variable choices
+        movieQuotes.forEach(function (currentQuote, quoteNumber) {
+            var choices = [];
+            for (letter in currentQuote.choices) {
+                //add an HTML radio button
+                console.log(letter);
+                choices.push(
+                    `<label>
+                    <input type="radio" name="quote${quoteNumber}" value="${letter}">
+                    ${letter} :
+                    ${currentQuote.choices[letter]}
+                  </label>`
+
+                );
+            }
+
+            // add this question and its answers to the output
+            output.push(
+                `<div class="quote"> ${currentQuote.quote} </div>
+                <div class="choices"> ${choices.join('')} </div>`
+            );
+        });
+        questionsContainer.innerHTML = output.join('');
+
+    }
+
+
+
+
+
     $("#startBTN").click(function () {
         //remove start screen and add countdown gif image
         $(".startScreen").remove();
@@ -124,55 +169,55 @@ $(document).ready(function () {
         function fiveSeconds() {
             //remove countdown GIF
             $("#startGameScreen").remove();
+            $("#questionaire").show();
+            $("#questionaire").addClass('quotes')
+            $("#questions").show();
+            $("#submit").show();
+            $("#results").show();
+            
         };
         //call function that appends questions by looping through objects and adding each one to the screen//
-        makeQuestionaire(movieQuotes);
+        makeQuestionaire();
     });
-
-    //---------------create target elements from HTML page for function
-    var questionsContainer = $("#questions");
-    var resultsContainer = $("#results");
-    var submitButton = $("#submit");
-
-    //------------------function that builds quiz
-    var makeQuestionaire = function() {
-        $("#questionaire").show();
-        var output = [];
-        //for each loop - to loop through each object in array and store the output in variable choices
-        movieQuotes.forEach(function(currentQuote, quoteNumber) {
-            var choices =[];
-            for(letter in currentQuote.choices){
-                //add an HTML radio button
-                choices.push(
-                  `<label>
-                    <input type="radio" name="quote${quoteNumber}" value="${letter}">
-                    ${letter} :
-                    ${currentQuote.choices[letter]}
-                  </label>`
-                );
-              }
-        
-              // add this question and its answers to the output
-              output.push(
-                `<div class="quote"> ${currentQuote.quote} </div>
-                <div class="choices"> ${choicess.join('')} </div>`
-              );
-            }
-          );
-          questionsContainer.innerHTML = output.join('');
-
-        }
-
-
-
+    // display quiz right away (in case top call isn't working) debugging why quiz is not appearing
+    makeQuestionaire();
 
     function showResults() {
+        // gather answer containers from our quiz
+        var answerContainers = questionsContainer.querySelectorAll('.answers');
 
+        // keep track of user's answers
+        var numCorrect = 0;
+
+        // for each question...
+        movieQuotes.forEach(function (currentQuote, quoteNumber) {
+
+            // find selected answer
+            var answerContainer = answerContainers[questionNumber];
+            var selector = 'input[name=quote' + quoteNumber + ']:checked';
+            var userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+            // if answer is correct
+            if (userAnswer === currentQuestion.correctAnswer) {
+                // add to the number of correct answers
+                numCorrect++;
+
+                // color the answers green
+                answerContainers[questionNumber].style.color = 'lightgreen';
+            }
+            // if answer is wrong or blank
+            else {
+                // color the answers red
+                answerContainers[questionNumber].style.color = 'red';
+            }
+        });
+
+        // show number of correct answers out of total
+        resultsContainer.innerHTML = numCorrect + ' out of ' + movieQuotes.length;
     }
-    // display quiz right away
-    makeQuestionaire();
+
     // on submit, show results
     $("#submit").click(showResults);
-    
+
 
 });
