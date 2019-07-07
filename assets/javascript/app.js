@@ -130,7 +130,7 @@ $(document).ready(function () {
     });
 
     //---------------create target elements from HTML page for function
-    var questionaireContainer = $("#questions");
+    var questionsContainer = $("#questions");
     var resultsContainer = $("#results");
     var submitButton = $("#submit");
 
@@ -138,14 +138,14 @@ $(document).ready(function () {
     var makeQuestionaire = function() {
         $("#questionaire").show();
         var output = [];
-        //for each loop through each object in array and store the output in output
+        //for each loop - to loop through each object in array and store the output in variable choices
         movieQuotes.forEach(function(currentQuote, quoteNumber) {
             var choices =[];
             for(letter in currentQuote.choices){
                 //add an HTML radio button
                 choices.push(
                   `<label>
-                    <input type="radio" name="question${quoteNumber}" value="${letter}">
+                    <input type="radio" name="quote${quoteNumber}" value="${letter}">
                     ${letter} :
                     ${currentQuote.choices[letter]}
                   </label>`
@@ -159,10 +159,11 @@ $(document).ready(function () {
               );
             }
           );
+          questionsContainer.innerHTML = output.join('');
 
-        })
+        }
 
-    };
+
 
 
     function showResults() {
