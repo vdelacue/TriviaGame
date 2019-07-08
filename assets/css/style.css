@@ -52,3 +52,12 @@ body {
     text-align: center;
 }
 
+/* results page */
+
+#results h2 {
+    text-align: center;
+}
+
+.row {
+    display: block;
+}
