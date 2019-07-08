@@ -5,9 +5,7 @@ $(document).ready(function () {
 
     // create an array of objects that contains movie quote, an object of choices key as letter and value of choice, correct choice
 
-    var movieQuotes = [
-
-        {
+    var movieQuotes = [{
             quote: "What we've got here is failure to communicate. ",
             choices: [
                 "The Shawshank Redemption",
@@ -130,13 +128,15 @@ $(document).ready(function () {
         }
     ];
 
-    //--------------- Global Variables -----------//
+    //--------------------- Global Variables ----------------//
 
     var numCorrect = 0;
+    var intervalId;
+    var clockRunning = false;
+    var time = 0;
 
-    // functions that handles button clicks for start button and submit button
 
-    //start Button
+    //-----------------start Button------------------------//
     $("#startBTN").click(function () {
         //remove start screen and add countdown gif image
         $(".startScreen").remove();
@@ -153,16 +153,57 @@ $(document).ready(function () {
         };
         //call function that appends questions by looping through objects and adding each one to the screen//
         makeQuiz(movieQuotes);
-        setTimeout(quizTime, 1000 * 15);
+        setTimeout(startQuizTimer, 1000 * 5);
+        setTimeout(stopQuizTimer, 1000 * 5 * 60);
     });
 
-    function quizTime() {
-        //added timer
-        var timer =
-            $("#questionaire").append(timer)
+    //-----------------------Timer-------------------//
+    
+
+    function timeConverter(t) {
+        var minutes = Math.floor(t / 60);
+        var seconds = t - (minutes * 60);
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+        if (minutes === 0) {
+            minutes = "00";
+        } else if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        return minutes + ":" + seconds;
     };
 
-    //function that builds a quiz
+    function count() {
+        time++;
+        var converted = timeConverter(time);
+        $("#display").text(converted);
+    }
+
+    function startQuizTimer() {
+        if (!clockRunning) {
+            intervalId = setInterval(count, 1000);
+            clockRunning = true;
+        };
+    }
+
+    function stopQuizTimer() {
+        clearInterval(intervalId);
+        clockRunning = false;
+        movieQuotes.forEach(function (question) {
+            //update number of correct answers 
+            if (question.correctChoice === question.userChoice) {
+                numCorrect += 1;
+            }
+        })
+        var h2Results = $('<h2>').text("You got " + numCorrect + " out of 10 correct!");
+        $("#questions").remove();
+        $("#submit").remove();
+        $("#questionaire").append('<img src="assets/images/theEnd.gif" class="img-fluid rounded mx-auto d-block" alt="Responsive image">');
+        $("#results").append(h2Results);
+    }
+
+    //---------------function that builds a quiz
     var makeQuiz = function (arr) {
         movieQuotes.forEach(function (question, index) {
             var h2Quote = $('<h2 class="h2q mt-4">').text("Question " + (index + 1) + ": " + question.quote);
@@ -192,9 +233,8 @@ $(document).ready(function () {
         movieQuotes[questionIndex].userChoice = answer;
     });
 
-    // function that times quiz and then triggers the results 
-    setTimeout(quizTime, 10000 * 5);
     
+
     //function that displays results 
 
     $("#submit").click(function () {
