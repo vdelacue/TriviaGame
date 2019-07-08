@@ -407,35 +407,35 @@ $(document).ready(function(){
 
 
     /// HTML CODE 
-    <!-- Question Template to repeat each object movieTriviaQuotes-->
-                    <h2>MOVIE QUOTE</h2>
-                    <!-- Here are the choices for the first question. Each input tag must have the same name. For this question, the name is q1. -->
-                    <!-- The value is which answer the choice corresponds to. -->
-                    <label><input type="radio" name="q1" value="c1">
-                        name of movie
-                    </label><br />
-                    <label><input type="radio" name="q1" value="c2">
-                        name of movie
-                    </label><br />
-                    <label><input type="radio" name="q1" value="c3">
-                        name of movie
-                    </label><br />
-                    <label><input type="radio" name="q1" value="c4">
-                        name of movie
-                    </label><br />
+    // <!-- Question Template to repeat each object movieTriviaQuotes-->
+    //                 <h2>MOVIE QUOTE</h2>
+    //                 <!-- Here are the choices for the first question. Each input tag must have the same name. For this question, the name is q1. -->
+    //                 <!-- The value is which answer the choice corresponds to. -->
+    //                 <label><input type="radio" name="q1" value="c1">
+    //                     name of movie
+    //                 </label><br />
+    //                 <label><input type="radio" name="q1" value="c2">
+    //                     name of movie
+    //                 </label><br />
+    //                 <label><input type="radio" name="q1" value="c3">
+    //                     name of movie
+    //                 </label><br />
+    //                 <label><input type="radio" name="q1" value="c4">
+    //                     name of movie
+    //                 </label><br />
 
-                    <!-- Question 2 -->
-                    <h2>MOVIE QUOTE</h2>
-                    <!-- Here are the choices for the second question. Notice how each input tag has the same name (q2), but a different name than the previous question. -->
-                    <label><input type="radio" name="q2" value="c1">
-                        name of movie
-                    </label><br />
-                    <label><input type="radio" name="q2" value="c2">
-                        name of movie
-                    </label><br />
-                    <label><input type="radio" name="q2" value="c3">
-                        name of movie
-                    </label><br />
-                    <label><input type="radio" name="q2" value="c4">
-                        name of movie
-                    </label><br />
+    //                 <!-- Question 2 -->
+    //                 <h2>MOVIE QUOTE</h2>
+    //                 <!-- Here are the choices for the second question. Notice how each input tag has the same name (q2), but a different name than the previous question. -->
+    //                 <label><input type="radio" name="q2" value="c1">
+    //                     name of movie
+    //                 </label><br />
+    //                 <label><input type="radio" name="q2" value="c2">
+    //                     name of movie
+    //                 </label><br />
+    //                 <label><input type="radio" name="q2" value="c3">
+    //                     name of movie
+    //                 </label><br />
+    //                 <label><input type="radio" name="q2" value="c4">
+    //                     name of movie
+    //                 </label><br />
