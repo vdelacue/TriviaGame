@@ -158,8 +158,8 @@ $(document).ready(function () {
 
     function quizTime() {
         //added timer
-        var timer = 
-        $("#questionaire").append(timer)
+        var timer =
+            $("#questionaire").append(timer)
     };
 
     //function that builds a quiz
@@ -168,7 +168,7 @@ $(document).ready(function () {
             var h2Quote = $('<h2 class="h2q mt-4">').text("Question " + (index + 1) + ": " + question.quote);
             $("#questions").append(h2Quote);
             $("#questions").append("<br>");
-            
+
             question.choices.forEach(function (choice) {
                 $("#questions").append(
                     `<div class="form-check form-check-inline my-2">
@@ -194,9 +194,7 @@ $(document).ready(function () {
 
     // function that times quiz and then triggers the results 
     setTimeout(quizTime, 10000 * 5);
-
-
-
+    
     //function that displays results 
 
     $("#submit").click(function () {
@@ -208,8 +206,6 @@ $(document).ready(function () {
             if (question.correctChoice === question.userChoice) {
                 numCorrect += 1;
             }
-            //store correct answers 
-         
         })
         var h2Results = $('<h2>').text("You got " + numCorrect + " out of 10 correct!");
         $("#questions").remove();
