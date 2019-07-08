@@ -1,6 +1,7 @@
 $(document).ready(function () {
     //hide elements until user hits start
     $("#questionaire").hide();
+    $("#submit").hide();
 
     // create an array of objects that contains movie quote, an object of choices key as letter and value of choice, correct choice
 
@@ -155,8 +156,8 @@ $(document).ready(function () {
     });
 
     function quizTime() {
-       //added timer
-        $("#questionaire").
+        //added timer
+        $("#questionaire").append(timer)
     };
 
     //function that builds a quiz
@@ -196,9 +197,8 @@ $(document).ready(function () {
     //function that displays results 
 
     $("#submit").click(resultsFn);
-        
-        
-        var resultsFn = function () {
+
+    var resultsFn = function () {
         //clear interval
         clearInterval(intervalId);
         //loop through the object movieQuotes and see if the changed value of userChoice is the same as the correctChoice
@@ -207,12 +207,12 @@ $(document).ready(function () {
             if (question.correctChoice === question.userChoice) {
                 numCorrect += 1;
             }
-        //store correct answers 
-        var h2Results = $('<h2>').text("You got " + numCorrect + " out of 10 correct!");
-        $("#questions").remove();
-        $("#submit").remove();
-        $("#questionaire").append('<img src="assets/images/theEnd.gif" class="img-fluid rounded mx-auto d-block" alt="Responsive image">');
-        $("#results").append(h2Results);
-    })
-}
+            //store correct answers 
+            var h2Results = $('<h2>').text("You got " + numCorrect + " out of 10 correct!");
+            $("#questions").remove();
+            $("#submit").remove();
+            $("#questionaire").append('<img src="assets/images/theEnd.gif" class="img-fluid rounded mx-auto d-block" alt="Responsive image">');
+            $("#results").append(h2Results);
+        })
+    }
 })
