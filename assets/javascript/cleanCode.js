@@ -154,7 +154,7 @@ $(document).ready(function () {
         //call function that appends questions by looping through objects and adding each one to the screen//
         makeQuiz(movieQuotes);
         setTimeout(startQuizTimer, 1000 * 5);
-        setTimeout(stopQuizTimer, 1000 * 5 * 60);
+        setTimeout(stopQuizTimer, 1000 * 3 * 60 + 5);
     });
 
     //-----------------------Timer-------------------//
@@ -198,12 +198,13 @@ $(document).ready(function () {
         })
         var h2Results = $('<h2>').text("You got " + numCorrect + " out of 10 correct!");
         $("#questions").remove();
+        $("#display").remove();
         $("#submit").remove();
         $("#questionaire").append('<img src="assets/images/theEnd.gif" class="img-fluid rounded mx-auto d-block" alt="Responsive image">');
         $("#results").append(h2Results);
     }
 
-    //---------------function that builds a quiz
+    //---------------function that builds a quiz--------------//
     var makeQuiz = function (arr) {
         movieQuotes.forEach(function (question, index) {
             var h2Quote = $('<h2 class="h2q mt-4">').text("Question " + (index + 1) + ": " + question.quote);
@@ -249,6 +250,7 @@ $(document).ready(function () {
         })
         var h2Results = $('<h2>').text("You got " + numCorrect + " out of 10 correct!");
         $("#questions").remove();
+        $("#display").remove();
         $("#submit").remove();
         $("#questionaire").append('<img src="assets/images/theEnd.gif" class="img-fluid rounded mx-auto d-block" alt="Responsive image">');
         $("#results").append(h2Results);

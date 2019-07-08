@@ -61,6 +61,12 @@ body {
     margin-left: 40%;
 }
 
+#display {
+    font-family: monospace;
+    font-size: 60px;
+    text-align: center;
+}
+
 /* results page */
 
 #results h2 {
