@@ -154,7 +154,7 @@ $(document).ready(function () {
         //call function that appends questions by looping through objects and adding each one to the screen//
         makeQuiz(movieQuotes);
         setTimeout(startQuizTimer, 1000 * 5);
-        setTimeout(stopQuizTimer, 1000 * 3 * 60 + 5);
+        setTimeout(stopQuizTimer, 1000 * 184);
     });
 
     //-----------------------Timer-------------------//

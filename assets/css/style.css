@@ -33,6 +33,7 @@ body {
 
 #startGameScreen p {
     margin: 0.5%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #startBTN {
@@ -67,7 +68,7 @@ body {
     text-align: center;
 }
 
-/* results page */
+/* results  */
 
 #results h2 {
     text-align: center;
