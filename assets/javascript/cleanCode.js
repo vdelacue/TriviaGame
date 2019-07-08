@@ -199,9 +199,7 @@ $(document).ready(function () {
 
     //function that displays results 
 
-    $("#submit").click(work());
-
-    var work = function() {
+    $("#submit").click(function () {
         //clear interval
         clearInterval();
         //loop through the object movieQuotes and see if the changed value of userChoice is the same as the correctChoice
@@ -211,11 +209,12 @@ $(document).ready(function () {
                 numCorrect += 1;
             }
             //store correct answers 
-            var h2Results = $('<h2>').text("You got " + numCorrect + " out of 10 correct!");
-            $("#questions").remove();
-            $("#submit").remove();
-            $("#questionaire").append('<img src="assets/images/theEnd.gif" class="img-fluid rounded mx-auto d-block" alt="Responsive image">');
-            $("#results").append(h2Results);
+         
         })
-    };
+        var h2Results = $('<h2>').text("You got " + numCorrect + " out of 10 correct!");
+        $("#questions").remove();
+        $("#submit").remove();
+        $("#questionaire").append('<img src="assets/images/theEnd.gif" class="img-fluid rounded mx-auto d-block" alt="Responsive image">');
+        $("#results").append(h2Results);
+    });
 })
