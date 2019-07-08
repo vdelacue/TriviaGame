@@ -151,7 +151,13 @@ $(document).ready(function () {
         };
         //call function that appends questions by looping through objects and adding each one to the screen//
         makeQuiz(movieQuotes);
+        setTimeout(quizTime, 1000 * 15);
     });
+
+    function quizTime() {
+       //added timer
+        $("#questionaire").
+    };
 
     //function that builds a quiz
     var makeQuiz = function (arr) {
@@ -182,16 +188,25 @@ $(document).ready(function () {
         movieQuotes[questionIndex].userChoice = answer;
     });
 
+    // function that times quiz and then triggers the results 
+    setTimeout(quizTime, 10000 * 5);
+
+
+
     //function that displays results 
 
-    $("#submit").click(function () {
+    $("#submit").click(resultsFn);
+        
+        
+        var resultsFn = function () {
+        //clear interval
+        clearInterval(intervalId);
         //loop through the object movieQuotes and see if the changed value of userChoice is the same as the correctChoice
         movieQuotes.forEach(function (question) {
             //update number of correct answers 
             if (question.correctChoice === question.userChoice) {
                 numCorrect += 1;
             }
-        })
         //store correct answers 
         var h2Results = $('<h2>').text("You got " + numCorrect + " out of 10 correct!");
         $("#questions").remove();
@@ -199,4 +214,5 @@ $(document).ready(function () {
         $("#questionaire").append('<img src="assets/images/theEnd.gif" class="img-fluid rounded mx-auto d-block" alt="Responsive image">');
         $("#results").append(h2Results);
     })
+}
 })
