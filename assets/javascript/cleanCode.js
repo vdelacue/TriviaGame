@@ -149,6 +149,7 @@ $(document).ready(function () {
             $("#startGameScreen").remove();
             $("#questionaire").show();
             $("#questionaire").addClass('quotes')
+            $("#submit").show();
         };
         //call function that appends questions by looping through objects and adding each one to the screen//
         makeQuiz(movieQuotes);
@@ -157,21 +158,23 @@ $(document).ready(function () {
 
     function quizTime() {
         //added timer
+        var timer = 
         $("#questionaire").append(timer)
     };
 
     //function that builds a quiz
     var makeQuiz = function (arr) {
         movieQuotes.forEach(function (question, index) {
-            var h2Quote = $('<h2 class="h2q customfont">').text("Question " + (index + 1) + ": " + question.quote);
+            var h2Quote = $('<h2 class="h2q mt-4">').text("Question " + (index + 1) + ": " + question.quote);
             $("#questions").append(h2Quote);
             $("#questions").append("<br>");
+            
             question.choices.forEach(function (choice) {
                 $("#questions").append(
                     `<div class="form-check form-check-inline my-2">
                 <input class="form-check-input" name="${index}" type="radio" id="${choice}" value="${choice}">
                 <label class="form-check-label answers" for="${choice}">${choice}</label>
-              </div>`
+              </div><br>`
                 );
             })
         })
@@ -196,11 +199,11 @@ $(document).ready(function () {
 
     //function that displays results 
 
-    $("#submit").click(resultsFn);
+    $("#submit").click(work());
 
-    var resultsFn = function () {
+    var work = function() {
         //clear interval
-        clearInterval(intervalId);
+        clearInterval();
         //loop through the object movieQuotes and see if the changed value of userChoice is the same as the correctChoice
         movieQuotes.forEach(function (question) {
             //update number of correct answers 
@@ -214,5 +217,5 @@ $(document).ready(function () {
             $("#questionaire").append('<img src="assets/images/theEnd.gif" class="img-fluid rounded mx-auto d-block" alt="Responsive image">');
             $("#results").append(h2Results);
         })
-    }
+    };
 })

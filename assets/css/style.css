@@ -49,7 +49,16 @@ body {
     opacity: 0.5;
     margin-top: 20%;
     padding: 10%;
+    
+}
+
+.h2q {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#submit {
     text-align: center;
+    margin-left: 40%;
 }
 
 /* results page */
