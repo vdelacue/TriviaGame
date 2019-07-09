@@ -5,7 +5,9 @@ $(document).ready(function () {
 
     // create an array of objects that contains movie quote, an object of choices key as letter and value of choice, correct choice
 
-    var movieQuotes = [{
+    var movieQuotes = [
+        
+        {
             quote: "What we've got here is failure to communicate. ",
             choices: [
                 "The Shawshank Redemption",
