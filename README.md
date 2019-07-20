@@ -2,7 +2,7 @@
 Trivia game with a timer
 
 
-# Play the game by clicking on this link [Trivia Game](https://github.com/vdelacue/TriviaGame) #
+# Play the game by clicking on this link [Trivia Game](http://delacue.com/TriviaGame/) #
 
  Here's how the Game works:
 
